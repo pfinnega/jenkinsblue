@@ -31,7 +31,8 @@ pipeline {
     
     failure {
       echo 'This will run only if failed'
-      
+      archiveArtifacts '*.out'
+
     }
     
     unstable {
