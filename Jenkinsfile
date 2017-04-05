@@ -4,6 +4,7 @@ pipeline {
     stage('build') {
       steps {
         echo 'This is a test'
+        git(url: 'https://github.com/pfinnega/jenkinsblue', branch: 'master', changelog: true, poll: true, credentialsId: 'ae6ab6b0f6a1c9c60bc241b4459a729a07769ed2')
       }
     }
     stage('deploy') {
@@ -27,12 +28,13 @@ pipeline {
     
     success {
       echo 'This will run only if successful'
+      
     }
     
     failure {
       echo 'This will run only if failed'
       archiveArtifacts '*.out'
-
+      
     }
     
     unstable {
@@ -43,6 +45,8 @@ pipeline {
     changed {
       echo 'This will run only if the state of the Pipeline has changed'
       echo 'For example, if the Pipeline was previously failing but is now successful'
+      
     }
+    
   }
 }
