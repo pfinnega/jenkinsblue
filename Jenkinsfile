@@ -4,7 +4,7 @@ pipeline {
     stage('build') {
       steps {
         echo 'This is a test'
-        sh 'echo loggy > test.log'
+        //sh 'echo loggy > test.log'
       }
     }
     stage('deploy') {
