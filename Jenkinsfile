@@ -3,6 +3,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
+        step([$class: 'WsCleanup'])
         echo 'This is a test'
         
       }
