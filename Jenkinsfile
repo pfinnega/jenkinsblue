@@ -16,7 +16,8 @@ pipeline {
     }
     stage('test') {
       steps {
-        fileExists 'work.out'
+        //fileExists 'work.out'
+        echo "This is a test"
       }
     }
   }
