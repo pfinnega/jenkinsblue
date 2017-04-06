@@ -16,7 +16,7 @@ pipeline {
     }
     stage('test') {
       steps {
-        fileExists 'test.log'
+        fileExists 'work.out'
       }
     }
   }
