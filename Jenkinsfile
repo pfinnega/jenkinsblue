@@ -3,21 +3,27 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        step([$class: 'WsCleanup'])
-        echo 'This is a test'
+        //step([$class: 'WsCleanup'])
+        echo 'Building test ...'
         
       }
     }
     stage('deploy') {
       steps {
-        echo 'This is a test'
+        echo 'Deploy ...'
         writeFile(file: 'work.out', text: 'stuff')
+      }
+      failure {
+        echo 'Deploy failed!!!!'
       }
     }
     stage('test') {
       steps {
         //fileExists 'work.out'
-        echo "This is a test"
+        echo "Testing ..."
+      }
+      failure {
+        echo 'Test failed!!!!'
       }
     }
   }
@@ -35,7 +41,6 @@ pipeline {
     
     failure {
       echo 'This will run only if failed'
-      archiveArtifacts '*.out'
       
     }
     
@@ -46,7 +51,6 @@ pipeline {
     
     changed {
       echo 'This will run only if the state of the Pipeline has changed'
-      echo 'For example, if the Pipeline was previously failing but is now successful'
       
     }
     
