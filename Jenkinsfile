@@ -5,7 +5,6 @@ pipeline {
       steps {
         //step([$class: 'WsCleanup'])
         echo 'Building test ...'
-        
       }
     }
     stage('deploy') {
@@ -13,24 +12,17 @@ pipeline {
         echo 'Deploy ...'
         writeFile(file: 'work.out', text: 'stuff')
       }
-      failure {
-        echo 'Deploy failed!!!!'
-      }
     }
     stage('test') {
       steps {
         //fileExists 'work.out'
         echo "Testing ..."
       }
-      failure {
-        echo 'Test failed!!!!'
-      }
     }
   }
   post {
     always {
       echo 'This will always run'
-      archiveArtifacts '*.log'
       
     }
     
@@ -53,6 +45,5 @@ pipeline {
       echo 'This will run only if the state of the Pipeline has changed'
       
     }
-    
   }
 }
