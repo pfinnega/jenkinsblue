@@ -1,8 +1,5 @@
 pipeline {
   agent any
-  options {
-      cron('H 23 * * *')
-  }
   stages {
     stage('build') {
       steps {
