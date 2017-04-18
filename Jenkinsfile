@@ -27,6 +27,8 @@ pipeline {
     
   }
   post {
+    properties([pipelineTriggers([cron('H 23 * * *')])])
+
     always {
       echo 'This will always run'
       
@@ -34,7 +36,6 @@ pipeline {
     
     success {
       echo 'This will run only if successful'
-      properties([pipelineTriggers([cron('H 23 * * *')])])
       build job: 'ust_install_sim'
       
     }
