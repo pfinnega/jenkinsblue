@@ -34,7 +34,7 @@ pipeline {
     
     success {
       echo 'This will run only if successful'
-      build job: 'ust_install_sim'
+      build job: 'ust_install_sim' properties([pipelineTriggers([cron('H 23 * * *')])])
       
     }
     
