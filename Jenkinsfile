@@ -26,8 +26,8 @@ pipeline {
     }
     
   }
+  properties([pipelineTriggers([cron('H 23 * * *')])])
   post {
-    properties([pipelineTriggers([cron('H 23 * * *')])])
 
     always {
       echo 'This will always run'
