@@ -19,6 +19,12 @@ pipeline {
         echo "Testing ..."
       }
     }
+    stage('Post') {
+      steps {
+        echo "Post install ..."
+      }
+    }
+    
   }
   post {
     always {
