@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  triggers {
+      cron('H 23 * * *')
+  }
   stages {
     stage('build') {
       steps {
@@ -26,7 +29,6 @@ pipeline {
     }
     
   }
-  properties([pipelineTriggers([cron('H 23 * * *')])])
   post {
 
     always {
