@@ -28,6 +28,7 @@ pipeline {
     
     success {
       echo 'This will run only if successful'
+      build job: 'ust_install_sim'
       
     }
     
